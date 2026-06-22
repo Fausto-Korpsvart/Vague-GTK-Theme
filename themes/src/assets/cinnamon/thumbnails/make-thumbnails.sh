@@ -1,0 +1,162 @@
+#! /usr/bin/env bash
+
+for theme in '' '-Blue' '-Green' '-Grey' '-Orange' '-Pink' '-Purple' '-Red' '-Teal' '-Yellow'; do
+    for type in '' '-Medium' '-Soft'; do
+        case "$theme" in
+            '')
+                theme_color_dark='#7e98e8'
+                theme_color_light='#6e94b2'
+                ;;
+            -Blue)
+                theme_color_dark='#8fa6cb'
+                theme_color_light='#4a5d7a'
+                ;;
+            -Green)
+                theme_color_dark='#9db298'
+                theme_color_light='#5a6b57'
+                ;;
+            -Grey)
+                theme_color_dark='#c9c9e0'
+                theme_color_light='#515163'
+                ;;
+            -Orange)
+                theme_color_dark='#d69c7e'
+                theme_color_light='#a6735a'
+                ;;
+            -Pink)
+                theme_color_dark='#c99fb3'
+                theme_color_light='#8e6a7a'
+                ;;
+            -Purple)
+                theme_color_dark='#a6a6cc'
+                theme_color_light='#6c6c8f'
+                ;;
+            -Red)
+                theme_color_dark='#c17a7a'
+                theme_color_light='#844f4f'
+                ;;
+            -Teal)
+                theme_color_dark='#94b5ac'
+                theme_color_light='#4d6b63'
+                ;;
+            -Yellow)
+                theme_color_dark='#d1b88a'
+                theme_color_light='#96825d'
+                ;;
+        esac
+
+        if [[ "$type" == '-Medium' ]]; then
+            panel_dark='#1c1c24'
+            panel_light='#f0f0f5'
+
+            case "$theme" in
+                '')
+                    theme_color_dark='#7e98e8'
+                    theme_color_light='#6e94b2'
+                    ;;
+                -Blue)
+                    theme_color_dark='#8fa6cb'
+                    theme_color_light='#4a5d7a'
+                    ;;
+                -Green)
+                    theme_color_dark='#9db298'
+                    theme_color_light='#5a6b57'
+                    ;;
+                -Grey)
+                    theme_color_dark='#c9c9e0'
+                    theme_color_light='#515163'
+                    ;;
+                -Orange)
+                    theme_color_dark='#d69c7e'
+                    theme_color_light='#a6735a'
+                    ;;
+                -Pink)
+                    theme_color_dark='#c99fb3'
+                    theme_color_light='#8e6a7a'
+                    ;;
+                -Purple)
+                    theme_color_dark='#a6a6cc'
+                    theme_color_light='#6c6c8f'
+                    ;;
+                -Red)
+                    theme_color_dark='#c17a7a'
+                    theme_color_light='#844f4f'
+                    ;;
+                -Teal)
+                    theme_color_dark='#94b5ac'
+                    theme_color_light='#4d6b63'
+                    ;;
+                -Yellow)
+                    theme_color_dark='#d1b88a'
+                    theme_color_light='#96825d'
+                    ;;
+            esac
+        fi
+
+        if [[ "$type" == '-Soft' ]]; then
+            panel_dark='#252530'
+            panel_light='#f0f0f5'
+
+            case "$theme" in
+                '')
+                    theme_color_dark='#7e98e8'
+                    theme_color_light='#6e94b2'
+                    ;;
+                -Blue)
+                    theme_color_dark='#8fa6cb'
+                    theme_color_light='#4a5d7a'
+                    ;;
+                -Green)
+                    theme_color_dark='#9db298'
+                    theme_color_light='#5a6b57'
+                    ;;
+                -Grey)
+                    theme_color_dark='#c9c9e0'
+                    theme_color_light='#515163'
+                    ;;
+                -Orange)
+                    theme_color_dark='#d69c7e'
+                    theme_color_light='#a6735a'
+                    ;;
+                -Pink)
+                    theme_color_dark='#c99fb3'
+                    theme_color_light='#8e6a7a'
+                    ;;
+                -Purple)
+                    theme_color_dark='#a6a6cc'
+                    theme_color_light='#6c6c8f'
+                    ;;
+                -Red)
+                    theme_color_dark='#c17a7a'
+                    theme_color_light='#844f4f'
+                    ;;
+                -Teal)
+                    theme_color_dark='#94b5ac'
+                    theme_color_light='#4d6b63'
+                    ;;
+                -Yellow)
+                    theme_color_dark='#d1b88a'
+                    theme_color_light='#96825d'
+                    ;;
+            esac
+        fi
+
+        if [[ "$type" != '' ]]; then
+            rm -rf "thumbnail${theme}${type}.svg"
+            cp -rf "thumbnail.svg" "thumbnail${theme}${type}.svg"
+            sed -i "s/#7e98e8/${theme_color_dark}/g" "thumbnail${theme}${type}.svg"
+            sed -i "s/#6e94b2/${theme_color_light}/g" "thumbnail${theme}${type}.svg"
+            sed -i "s/#f0f0f5/${panel_light}/g" "thumbnail${theme}${type}.svg"
+            sed -i "s/#141415/${panel_dark}/g" "thumbnail${theme}${type}.svg"
+            sed -i "s/thumbnail/thumbnail${theme}${type}/g" "thumbnail${theme}${type}.svg"
+        elif [[ "$theme" != '' ]]; then
+            rm -rf "thumbnail${theme}.svg"
+            cp -rf "thumbnail.svg" "thumbnail${theme}.svg"
+            sed -i "s/#7e98e8/${theme_color_dark}/g" "thumbnail${theme}.svg"
+            sed -i "s/#6e94b2/${theme_color_light}/g" "thumbnail${theme}.svg"
+            sed -i "s/thumbnail/thumbnail${theme}/g" "thumbnail${theme}.svg"
+        fi
+    done
+done
+
+echo -e "DONE!"

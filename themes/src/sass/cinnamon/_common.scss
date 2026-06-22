@@ -1,0 +1,190 @@
+// Commons
+
+$asset_path: assets;
+$font-size: 10;
+$panel_bg: rgba($panel-solid, 0.75);
+$panel_fg: on($panel-solid, secondary);
+
+$sub_menu_bg: mix($text, $popover, 10%);
+
+stage {
+	// @include fontsize($font-size);
+	color: $text;
+}
+
+.label-shadow {
+	color: rgba(0, 0, 0, 0);
+}
+
+%reset_style {
+	background-color: transparent !important;
+	background-gradient-direction: none !important;
+	border: none !important;
+	border-radius: 0 !important;
+}
+
+// Buttons
+%button {
+	min-height: 24px;
+	padding: 5px 32px;
+	transition-duration: 100ms;
+	border-radius: $corner-radius;
+
+	@include button(normal);
+
+	&:focus {
+		@include button(focus);
+		border-radius: $corner-radius;
+	}
+	&:hover {
+		@include button(hover);
+		border-radius: $corner-radius;
+		color: $primary;
+	}
+	&:hover:focus {
+		@include button(focus-hover);
+		border-radius: $corner-radius;
+	}
+	&:active,
+	&:active:focus {
+		@include button(active);
+		border-radius: $corner-radius;
+	}
+	&:insensitive {
+		@include button(insensitive);
+		border-radius: $corner-radius;
+	}
+}
+
+%flat_button {
+	border-radius: $corner-radius;
+	@include button(flat);
+
+	&:hover {
+		@include button(flat-hover);
+		border-radius: $corner-radius;
+	}
+	&:active {
+		@include button(flat-active);
+		border-radius: $corner-radius;
+	}
+	&:insensitive {
+		@include button(flat-insensitive);
+		border-radius: $corner-radius;
+		color: $error;
+	}
+}
+
+%osd_button {
+	min-height: 24px;
+	padding: $space-size $space-size * 5;
+	transition-duration: 100ms;
+	border-radius: $corner-radius;
+
+	@include button(osd);
+
+	&:hover {
+		@include button(osd-hover);
+	}
+	&:focus {
+		color: $primary;
+	}
+	&:active {
+		@include button(osd-active);
+	}
+	&:insensitive {
+		@include button(osd-insensitive);
+	}
+}
+
+// Entries
+%entry {
+	padding: $space-size/2 $space-size * 2;
+	min-height: $small-size;
+	caret-size: 1px;
+	selection-background-color: $primary;
+	selected-color: on($primary);
+	transition-duration: 300ms;
+	border-radius: $corner-radius;
+
+	@include entry(normal);
+
+	&:focus,
+	&:hover {
+		@include entry(focus);
+	}
+	&:insensitive {
+		@include entry(insensitive);
+	}
+
+	StIcon.capslock-warning {
+		icon-size: 16px;
+		warning-color: $warning;
+		padding: 0 $space-size;
+	}
+}
+
+%osd_entry {
+	padding: $space-size / 2 $space-size * 2;
+	caret-size: 1px;
+	caret-color: on($tooltip);
+	selection-background-color: $primary;
+	selected-color: on($primary);
+	transition-duration: 300ms;
+	border-radius: $corner-radius;
+
+	@include entry(osd);
+
+	&:focus {
+		@include entry(osd-focus);
+	}
+	&:insensitive {
+		@include entry(osd-insensitive);
+	}
+}
+
+// General Typography
+%large_title {
+	font-weight: 300;
+	@include fontsize(24pt);
+}
+
+%title_1 {
+	font-weight: 800;
+	@include fontsize(20pt);
+}
+
+%title_2 {
+	font-weight: 800;
+	@include fontsize(15pt);
+}
+
+%title_3 {
+	font-weight: 700;
+	@include fontsize(15pt);
+}
+
+%title_4 {
+	font-weight: 700;
+	@include fontsize(13pt);
+}
+
+%heading {
+	font-weight: 700;
+	@include fontsize(11pt);
+}
+
+%caption_heading {
+	font-weight: 700;
+	@include fontsize(9pt);
+}
+
+%caption {
+	font-weight: 400;
+	@include fontsize(9pt);
+}
+
+%smaller {
+	font-weight: 400;
+	@include fontsize(8pt);
+}

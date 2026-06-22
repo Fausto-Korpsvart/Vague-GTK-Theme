@@ -1,0 +1,73 @@
+// Vague Default Color Palette
+
+// Accent
+$accent-dark: #7e98e8;
+$accent-light: #6e94b2;
+
+// Blue
+$blue-dark: #8fa6cb;
+$blue-light: #4a5d7a;
+
+// Green
+$green-dark: #9db298;
+$green-light: #5a6b57;
+
+// Orange
+$orange-dark: #d69c7e;
+$orange-light: #a6735a;
+
+// Pink
+$pink-dark: #c99fb3;
+$pink-light: #8e6a7a;
+
+// Purple
+$purple-dark: #a6a6cc;
+$purple-light: #6c6c8f;
+
+// Red
+$red-dark: #c17a7a;
+$red-light: #844f4f;
+
+// Teal
+$teal-dark: #94b5ac;
+$teal-light: #4d6b63;
+
+// Yellow
+$yellow-dark: #d1b88a;
+$yellow-light: #96825d;
+
+// Grey
+$grey-050: #f8f8fa;
+$grey-100: #f0f0f5;
+$grey-150: #e3e3ee;
+$grey-200: #d6d6e7;
+$grey-250: #c9c9e0;
+$grey-300: #bcbcda;
+$grey-350: #a9a9c2;
+$grey-400: #9696ad;
+$grey-450: #838399;
+$grey-500: #717187;
+$grey-550: #606075;
+$grey-600: #515163;
+$grey-650: #444454;
+$grey-700: #383847;
+$grey-750: #2e2e3b;
+$grey-800: #252530;
+$grey-850: #1c1c24;
+$grey-900: #141415;
+$grey-950: #0d0d10;
+
+// White
+$white: #f0f0f5;
+
+// Black
+$black: #141415;
+
+// Theme
+$default-dark: $accent-dark;
+$default-light: $accent-light;
+
+// Button
+$button-close: if($topbar == 'light', $red-light, $red-dark);
+$button-max: if($topbar == 'light', $green-light, $green-dark);
+$button-min: if($topbar == 'light', $orange-light, $orange-dark);

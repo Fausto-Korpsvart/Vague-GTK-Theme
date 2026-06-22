@@ -1,0 +1,469 @@
+$dashtodock_background: if($variant == 'light', rgba($white, 0.65), $panel);
+$dashtodock_hover_icons: if(
+	$variant == 'light',
+	inset 0 0 100px 10px rgba($black, 0.35),
+	inset 0 0 100px 10px rgba($primary, 0.35)
+);
+
+// Scrollview style
+.bottom #dashtodockDashScrollview,
+.top #dashtodockDashScrollview {
+	-st-hfade-offset: 24px;
+}
+
+.left #dashtodockDashScrollview,
+.right #dashtodockDashScrollview {
+	-st-vfade-offset: 24px;
+}
+
+#dashtodockContainer {
+	background-color: transparent;
+
+	.number-overlay {
+		min-width: 1.2em;
+		min-height: 1.2em;
+		color: $panel-text;
+		background-color: rgba(black, 0.75);
+		text-align: center;
+		padding: 0.2em 0.4em;
+	}
+
+	.notification-badge {
+		min-width: 16px;
+		min-height: 16px;
+		color: $text;
+		background-color: $primary;
+		box-shadow: 0 2px 3px 0 rgba(0, 0, 0, 0.25);
+		border-radius: $circular_radius;
+		margin: 2px 3px 5px;
+		padding: 0.2em 0.4em;
+		font-weight: bold;
+		text-align: center;
+	}
+
+	@each $_pos, $b_pos in (top, bottom), (bottom, top), (left, right),
+		(right, left)
+	{
+		&.#{$_pos} #dash .dash-background {
+			border-radius: $dash_border_radius !important;
+		}
+
+		&.#{$_pos}.shrink {
+			#dash .dash-background {
+				border-radius: $modal_radius + $base_margin !important;
+			}
+		}
+
+		&.#{$_pos}.straight-corner,
+		&.#{$_pos}.shrink.straight-corner,
+		&.#{$_pos}.extended,
+		&.#{$_pos}.shrink.extended {
+			#dash {
+				margin: 0 !important;
+				margin-top: 0 !important;
+				padding: 4px !important;
+
+				.dash-background {
+					margin: 0 !important;
+					margin-bottom: 0 !important;
+					border-radius: 0 !important;
+				}
+
+				.show-apps,
+				.overview-tile {
+					margin: 0 !important;
+				}
+			}
+		}
+	}
+
+	&.extended,
+	&.straight-corner {
+		.dash-background {
+			border-radius: 0 !important;
+		}
+	}
+
+	#dash,
+	&:overview #dash {
+		background: transparent;
+	}
+
+	&.left,
+	&.right {
+		#dash {
+			margin-top: 0 !important;
+			padding: 4px !important; // Absolute minimal padding
+
+			#dashtodockDashContainer {
+				padding: 2px 0 !important;
+			}
+		}
+
+		.show-apps,
+		.overview-tile {
+			padding: 2px !important; // Minimal breathing room
+		}
+
+		.dash-background {
+			margin-bottom: 0 !important;
+			padding: 4px 2px !important; // Narrow background
+		}
+
+		&.shrink {
+			#dash {
+				#dashtodockDashContainer {
+					padding: $base_margin 0 !important;
+				}
+			}
+
+			.dash-background {
+				padding: $base_margin !important;
+			}
+
+			.show-apps,
+			.overview-tile {
+				margin: 0 !important;
+				padding: 4px !important;
+			}
+		}
+
+		&.extended,
+		&.straight-corner {
+			#dash {
+				#dashtodockDashContainer {
+					padding: 4px !important;
+
+					#dashtodockDashScrollview:first-child {
+						padding-top: 0 !important;
+					}
+
+					#dashtodockDashScrollview:last-child {
+						padding-bottom: 0 !important;
+					}
+
+					& > :first-child {
+						.show-apps {
+							padding-bottom: $base_padding !important;
+						}
+					}
+
+					& > :last-child {
+						.show-apps {
+							padding-bottom: $dash_padding + $base_padding * 2 !important;
+						}
+					}
+				}
+			}
+
+			&.shrink {
+				#dash {
+					#dashtodockDashContainer {
+						& > :last-child {
+							.show-apps {
+								padding-bottom: 0 !important;
+							}
+						}
+					}
+				}
+
+				.dash-background {
+					padding: 4px !important;
+				}
+
+				.show-apps,
+				.overview-tile {
+					margin: 0 !important;
+					padding: 4px !important;
+				}
+			}
+
+			.overview-tile {
+				padding: $dash_spacing $dash_padding !important;
+			}
+
+			.show-apps {
+				padding: $dash_spacing $dash_padding $dash_padding * 2 !important;
+			}
+		}
+	}
+
+	&.top,
+	&.bottom {
+		.dash-background {
+			padding: 2px $base_padding !important;
+		}
+
+		.show-apps,
+		.overview-tile {
+			margin: 0 !important;
+			padding-bottom: $dash_edge_offset !important;
+
+			.overview-icon {
+				padding: 2px 0 !important;
+				spacing: 2px 0 !important;
+			}
+		}
+
+		&.shrink {
+			.dash-background {
+				padding: $base_margin $base_margin / 2 !important;
+			}
+
+			.show-apps,
+			.overview-tile {
+				margin: 0 !important;
+				padding: 0 $base_margin / 2 $dash_padding !important;
+			}
+		}
+
+		&.extended,
+		&.straight-corner {
+			#dash {
+				#dashtodockDashContainer {
+					padding: 4px !important;
+
+					#dashtodockDashScrollview:first-child {
+						padding-left: 0 !important;
+					}
+
+					#dashtodockDashScrollview:last-child {
+						padding-right: 0 !important;
+					}
+
+					& > :first-child {
+						.show-apps {
+							padding-left: 0 !important;
+						}
+					}
+
+					& > :last-child {
+						.show-apps {
+							padding-right: $dash_padding + $base_padding !important;
+						}
+					}
+				}
+			}
+
+			&.shrink {
+				.dash-background {
+					padding: 4px !important;
+				}
+
+				.show-apps,
+				.overview-tile {
+					margin: 0 !important;
+					padding: 4px !important;
+				}
+
+				#dash {
+					#dashtodockDashContainer {
+						& > :last-child {
+							.show-apps {
+								padding-right: 0 !important;
+							}
+						}
+					}
+				}
+			}
+
+			.dash-separator {
+				margin: 0 ($dash_spacing + ($dash_padding / 2)) !important;
+			}
+
+			.show-apps,
+			.overview-tile {
+				padding: $dash_padding $dash_spacing !important;
+			}
+		}
+	}
+
+	#dash {
+		.dash-background {
+			background-color: $dashtodock_background;
+
+			@if $float == 'true' and $panel_border == 'true' {
+				border: 2px solid $primary;
+				box-shadow: none !important;
+			}
+		}
+
+		.show-apps,
+		.overview-tile {
+			.overview-icon {
+				color: on($osd);
+				padding: 4px !important;
+			}
+
+			&:focus .overview-icon {
+				background-color: $panel-fill;
+				box-shadow: $dashtodock_hover_icons;
+			}
+			&:hover .overview-icon {
+				background-color: $panel-divider;
+				box-shadow: $dashtodock_hover_icons;
+			}
+			&:active .overview-icon {
+				background-color: $panel-track;
+				box-shadow: $dashtodock_hover_icons;
+			}
+			&:checked .overview-icon {
+				background-color: $panel-divider;
+				box-shadow: $dashtodock_hover_icons;
+			}
+		}
+
+		// Icon replacement for show-apps
+		.show-apps {
+			.show-apps-icon {
+				-st-icon-source: none !important;
+				color: transparent !important;
+				background-image: url('assets/view-app-grid.svg');
+				background-size: contain;
+				background-position: center;
+				background-repeat: no-repeat;
+				padding: 2px !important; // More padding for dock balance
+			}
+		}
+
+		.app-grid-running-dot {
+			margin: 0 !important;
+			offset-y: 0 !important;
+			background-color: $panel-text-disabled;
+		}
+
+		StWidget.focused .app-grid-running-dot {
+			background-color: $primary;
+		}
+	}
+
+	&.opaque #dash .dash-background {
+		// solid-mode
+		background-color: $panel-solid;
+	}
+
+	&.transparent #dash .dash-background {
+		// translucent-mode
+		background-color: $panel; // does not work
+	}
+
+	&:overview #dash {
+		// overview-mode #1
+		background: none;
+
+		.show-apps,
+		.overview-tile {
+			.overview-icon {
+				color: on($osd, secondary);
+			}
+
+			&:focus .overview-icon {
+				background-color: on($osd, fill);
+				box-shadow: $dashtodock_hover_icons;
+			}
+			&:hover .overview-icon {
+				background-color: on($osd, divider);
+				box-shadow: $dashtodock_hover_icons;
+			}
+			&:active .overview-icon {
+				background-color: on($osd, track);
+				box-shadow: $dashtodock_hover_icons;
+			}
+			&:checked .overview-icon {
+				background-color: on($osd, divider);
+				box-shadow: $dashtodock_hover_icons;
+			}
+		}
+
+		// Icon replacement for show-apps in overview
+		.show-apps {
+			.show-apps-icon {
+				-st-icon-source: none !important;
+				color: transparent !important;
+				background-image: url('assets/view-app-grid.svg');
+				background-size: contain;
+				background-position: center;
+				background-repeat: no-repeat;
+				padding: 2px !important; // More padding for dock balance
+			}
+		}
+
+		// Dash to Dock background on overview
+		.dash-background {
+			// background-color: on($osd, divider);
+			background-color: $dashtodock_background;
+		}
+
+		.app-grid-running-dot {
+			background-color: on($osd, disabled);
+		}
+
+		StWidget.focused .app-grid-running-dot {
+			background-color: $primary;
+		}
+	}
+
+	&.opaque:overview,
+	&.transparent:overview {
+		// overview-mode #2
+		#dash {
+			background-color: transparent !important;
+			box-shadow: none !important;
+		}
+
+		.dash-background {
+			background-color: transparent !important;
+		}
+	}
+
+	&.opaque.extended:overview, // overview-mode #3
+  &.transparent.extended:overview {
+		#dash {
+			background: none;
+		}
+	}
+
+	&.running-dots,
+	&.dashtodock {
+		.dash-item-container > StButton {
+			transition-duration: 250ms;
+			background-size: contain;
+		}
+	}
+
+	&.shrink,
+	&.dashtodock {
+		.dash-item-container > StButton {
+			padding: 1px 2px;
+		}
+	}
+
+	&.extended,
+	&.extended:overview {
+		.overview-tile,
+		.show-apps {
+			.overview-icon {
+				border-radius: $base_radius;
+			}
+		}
+	}
+
+	.metro .overview-icon {
+		border-radius: 0;
+	}
+}
+
+.dashtodock-app-well-preview-menu-item {
+	padding: 1em 1em 0.5em 1em;
+}
+
+#dashtodockPreviewSeparator.popup-separator-menu-item-horizontal {
+	width: 1px;
+	height: auto;
+	border-right-width: 1px;
+	margin: 32px 0;
+}
+
+.dash-label.bottom {
+	margin-bottom: $dash_padding !important;
+}
