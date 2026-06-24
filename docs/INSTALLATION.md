@@ -63,11 +63,11 @@ mkdir -p ~/.config/gtk-4.0
 - GTK4/Libadwaita symlinks
 
 ```bash
-./install.sh -l
+./install.sh --libadwaita
 ```
 
 > [!IMPORTANT]
-> Only place the `assets/` folder, `gtk.css`, and `gtk-dark.css` files inside `~/.config/gtk-4.0/`.
+> Only place the `assets/` directory, `gtk.css`, and `gtk-dark.css` files inside `~/.config/gtk-4.0/`.
 > **Do not** copy the entire theme folder there.
 
 ---
@@ -76,7 +76,7 @@ mkdir -p ~/.config/gtk-4.0
 
 ### For GKT2/3 and other desktop environments
 
-Download the themes from [gnome-look](https://www.pling.com/u/fkorpsvart) or release section
+Download the themes from [Releases](https://github.com/Fausto-Korpsvart/Vague-GTK-Theme/releases) or [gnome-look (SOON)](https://www.pling.com/u/fkorpsvart)
 
 - Creating directory if not exist
 
@@ -87,19 +87,24 @@ mkdir -p ~/.themes
 - Extracting the files
 
 ```bash
-unzip Vague-Dark.zip
+tar -xf Vague.tar.xz
+
+#or
+unzip Vague.zip
 ```
 
 - Copy into the themes directory
 
 ```bash
 cp -r Vague-Dark ~/.themes/
+cp -r Vague-Light ~/.themes/
 ```
 
 - Install system-wide (root)
 
 ```bash
 sudo cp -r Vague-Dark /usr/share/themes/
+sudo cp -r Vague-Light /usr/share/themes/
 ```
 
 ### GTK4/Libadwaita
@@ -111,35 +116,35 @@ mkdir -p ~/.config/gtk-4.0
 ```
 
 > [!NOTE]
-> You need to enter the appropriate name depending on the theme you want to link to.
+> You need to enter the appropriate name depending on the theme you want to link to
 
 - Method A: Create symlinks manually (Recommended, auto update when reinstall the theme)
 
 ```bash
-ln -sf ~/.themes/Vague-Dark/gtk-4.0/assets       ~/.config/gtk-4.0/assets
-ln -sf ~/.themes/Vague-Dark/gtk-4.0/gtk.css      ~/.config/gtk-4.0/gtk.css
+ln -sf ~/.themes/Vague-Dark/gtk-4.0/assets ~/.config/gtk-4.0/assets
+ln -sf ~/.themes/Vague-Dark/gtk-4.0/gtk.css ~/.config/gtk-4.0/gtk.css
 ln -sf ~/.themes/Vague-Dark/gtk-4.0/gtk-dark.css ~/.config/gtk-4.0/gtk-dark.css
 ```
 
 - Method B: Copy theme files directly (Not recommended, but it is an option.)
 
 ```bash
-cp -r Vague-Dark/gtk-4.0/assets       ~/.config/gtk-4.0/
-cp    Vague-Dark/gtk-4.0/gtk.css      ~/.config/gtk-4.0/
-cp    Vague-Dark/gtk-4.0/gtk-dark.css ~/.config/gtk-4.0/
+cp -r Vague-Dark/gtk-4.0/assets ~/.config/gtk-4.0/
+cp Vague-Dark/gtk-4.0/gtk.css ~/.config/gtk-4.0/
+cp Vague-Dark/gtk-4.0/gtk-dark.css ~/.config/gtk-4.0/
 ```
 
 > [!IMPORTANT]
-> Only place `assets/`, `gtk.css`, and `gtk-dark.css` inside `~/.config/gtk-4.0/`.
+> Only place `assets/` directory, `gtk.css` file, and `gtk-dark.css` file inside `~/.config/gtk-4.0/`.
 
-______________________________________________________________________
+___
 
 ## Applying the Theme
 
 | Desktop Environment | Method |
-| ------------------- | ---------------------------------------------- |
+| ------------------- | ------ |
 | GNOME | Use GNOME Tweaks or Tuner |
-| GTK4 / Libadwaita | Automatically applied via `~/.config/gtk-4.0/` |
+| GTK4 / Libadwaita | Automatically applied via `./install.sh --libadwaita` or Methods A/B |
 | Cinnamon | System Settings → Themes |
 | XFCE | Appearance + Window Manager |
 | MATE | Appearance Preferences |

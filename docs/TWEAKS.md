@@ -6,7 +6,7 @@ advanced usage examples to customise your Vague GTK setup.
 ## Core Options
 
 | Option | Argument | Description | Default |
-| :--- | :--- | :--- | :--- |
+| ------ | -------- | ----------- | ------- |
 | `-d`, `--dest` | `DIR` | Target installation destination directory. | `~/.themes` *(or `/usr/share/themes` for root)* |
 | `-n`, `--name` | `NAME` | Set custom base theme name. | `Vague` |
 | `-a`, `--accent` | `VARIANT` | Select accent colour variant(s) (accepts multiple). | `default` |
@@ -41,7 +41,7 @@ sudo ./install.sh --dest /usr/share/themes
 - To choose your preferred Vague accent colour
 
 ```bash
-./install.sh --accent mauve
+./install.sh --accent purple
 ```
 
 - To choose between dark and light mode
@@ -97,7 +97,7 @@ sudo ./install.sh --dest /usr/share/themes
 These flags modify the visual presentation of the GNOME Shell top panel, dock, and on-screen displays (OSD):
 
 | Tweak | Argument | Description | Default |
-| :--- | :--- | :--- | :--- |
+| ----- | -------- | ----------- | ------- |
 | `float` | — | Floating panel/dock style with margins and rounded corners. | Disabled |
 | `no-border` | — | Strip the borders from the floating top panel and dock. | Disabled |
 | `opacity` | `0.0–1.0` | Set top panel and dock background alpha opacity. | `0.85` |
@@ -134,7 +134,7 @@ These flags modify the visual presentation of the GNOME Shell top panel, dock, a
 These settings alter the aesthetic characteristics of application windows across GTK2, GTK3, and GTK4:
 
 | Tweak | Argument | Description | Default |
-| :--- | :--- | :--- | :--- |
+| ----- | -------- | ----------- | ------- |
 | `soft` | — | Apply intermediate dark background (`#252530`). | Disabled |
 | `medium` | — | Apply warm dark background (`#1c1c24`). | Disabled |
 | `black` | — | OLED pure black background (`#000000`) for absolute power savings. | Disabled |
@@ -189,68 +189,46 @@ These settings alter the aesthetic characteristics of application windows across
 
 ## Advanced options combination
 
-### Borderless Version
+### Borderless Version with Floating Panel
 
-#### GTK options
-
-- Libadwaita Symlinks
-- Nautilus Legacy Design
-- Medium Theme
-- macOS Window Buttons
-- Border Radius 14px
-
-#### Shell options
-
-- Floating Panel
-- Borderless Panel
-- Panel Opacity 55%
-- Border Radius 14px
+| GTK options | Shell options |
+| ----------- | ------------- |
+| Libadwaita Symlinks | Floating Panel |
+| Nautilus Legacy Style | Panel without border |
+| Theme Medium | Opacity 55% |
+| maOS Window Buttons | Border Radius 14px |
+| Border Radius 14px | |
 
 ```bash
- ./install.sh -l --tweaks files-legacy medium macos radius 14 --shell float no-border opacity 55 radius 14
+ ./install.sh --libadwaita --tweaks files-legacy medium macos radius 14 --shell float no-border opacity 55 radius 14
 ```
 
-### Border Version
+### Border Version with Border Floating Panel
 
-#### GTK options
-
-- Libadwaita Symlinks
-- Soft Theme
-- Nautilus Modern Design
-- Legacy Window Buttons
-- Border 2px Accent Color
-- Accent Color Flamingo
-- Border Radius 9px
-
-#### Shell options
-
-- Floating Panel
-- Border 2px Accent Color
-- Panel Opacity 95%
-- Border Radius 9px
+| GTK options | Shell options |
+| ----------- | ------------- |
+| Libadwaita Symlinks | Floating Panel |
+| Soft Theme | Panel Opacity 95% |
+| Border 2px Accent Color | Border Radius 9px |
+| Border Radius 9px | |
+| Accent Color Orange | |
 
 ```bash
- ./install.sh -l --tweaks soft border radius 9 -t flamingo --shell float opacity 95 radius 9
+ ./install.sh --libadwaita --tweaks soft border radius 9 -t orange --shell float opacity 95 radius 9
 ```
 
 ### Square GTK - Legacy Panel - Black Version
 
-#### GTK options
-
-- Libadwaita Symlinks
-- Name Vague-Black-Square
-- Black Theme
-- Nautilus Modern Design
-- macOS Window Buttons
-- Border Radius 2px
-
-#### Shell options
-
-- Legacy Panel
-- Panel Opacity 75%
+| GTK options | Shell options |
+| ----------- | ------------- |
+| Libadwaita Symlinks | Legacy Panel (Default) |
+| Name Vague-Black-Square | Panel Opacity 75% |
+| Black Theme | |
+| macOS Window Buttons | |
+| Border Radius 2px | |
 
 ```bash
- ./install.sh -l --name "Vague-Black-Square" --tweaks black macos radius 2 --shell opacity 75
+ ./install.sh --libadwaita --name "Vague-Black-Square" --tweaks black macos radius 2 --shell opacity 75
 ```
 
 > [!NOTE]

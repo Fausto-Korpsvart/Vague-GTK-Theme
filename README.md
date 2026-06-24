@@ -6,7 +6,7 @@
   and stylish space where you can maximize your productivity.
 </p>
 
-> [!NOTE]
+> [!INFO]
 > The inspiration for this theme came from my desire to have my favourite Neovim colour palettes integrated throughout my GNOME desktop.<br>
 > To achieve this, I drew inspiration from [Vague for Neovim](https://github.com/vague-theme/vague.nvim) and the stunning GTK theme designs
 > by [VinceLiuice](https://github.com/vinceliuice),
@@ -29,7 +29,7 @@
 #### All Vague + Black backgrounds
 
 | Variant | HEX Color |
-| :-------: | :---------: |
+| ------- | --------- |
 | Dark | ![Dark](https://img.shields.io/badge/-%23141415-141415) |
 | Medium | ![Medium](https://img.shields.io/badge/-%231C1C24-1C1C24) |
 | Soft | ![Soft](https://img.shields.io/badge/-%23252530-252530) |
@@ -39,7 +39,7 @@
 #### All Vague accent colors
 
 | Name | HEX (light) | HEX (dark) |
-| ------ | ---------------- | ----------------- |
+| ---- | ----------- | ---------- |
 | Blue | ![Blue Light](https://img.shields.io/badge/-%234A5D7A-4A5D7A) | ![Blue Dark](https://img.shields.io/badge/-%238FA6CB-8FA6CB) |
 | Green | ![Green Ligtht](https://img.shields.io/badge/-%235A6B57-5A6B57) | ![Green Dark](https://img.shields.io/badge/-%239DB298-9DB298) |
 | Orange | ![Orange Light](https://img.shields.io/badge/-%23A6735A-A6735A) | ![Orange Dark](https://img.shields.io/badge/-%23D69C7E-D69C7E) |
@@ -66,7 +66,7 @@ cd Vague-GTK-Theme
 - Support for GTK4/Libadwaita with symbolic links
 
 ```bash
-./install.sh -l
+./install.sh --libadwaita
 ```
 
 - This only simulates the installation process. (It does not generate or install the theme)
@@ -82,7 +82,7 @@ cd Vague-GTK-Theme
 - macOS window buttons
 
 ```bash
-./install.sh -l --tweaks files-legacy macos
+./install.sh --libadwaita --tweaks files-legacy macos
 ```
 
 - 14px rounded corners for windows & Gnome Shell
@@ -134,12 +134,12 @@ A detailed guide to a deeper understanding of how it works.
 
 - [ ] Add screenshots for more Desktops
 - [ ] Add a few more icon packs
-- [ ] Add extra configs for docs, etc...
+- [ ] Add extra configs for docks, etc...
 
 ## Related Themes
 
 | Themes Projects | GitHub Repo | Gnome Look |
-| ------- | :------: | :------: |
+| --------------- | :---------: | :--------: |
 | Catppuccin GTK | [Source](https://github.com/Fausto-Korpsvart/Catppuccin-GTK-Theme) | [Package](https://www.pling.com/p/1715554/) |
 | Everforest GTK | [Source](https://github.com/Fausto-Korpsvart/Everforest-GTK-Theme) | [Package](https://www.pling.com/p/1695467/) |
 | Gruvbox GTK | [Source](https://github.com/Fausto-Korpsvart/Gruvbox-GTK-Theme) | [Package](https://www.pling.com/p/1681313/) |
@@ -149,7 +149,7 @@ A detailed guide to a deeper understanding of how it works.
 | Osaka GTK | [Source](https://github.com/Fausto-Korpsvart/Osaka-GTK-Theme) | [Package](https://www.pling.com/p/2284009/) |
 | Rose Pine GTK | [Source](https://github.com/Fausto-Korpsvart/Rose-Pine-GTK-Theme) | [Package](https://www.pling.com/p/1810530/) |
 | Tokyonight GTK | [Source](https://github.com/Fausto-Korpsvart/Tokyonight-GTK-Theme) | [Package](https://www.pling.com/p/1681315/) |
-| Vague GTK | [Soon](https://github.com/Fausto-Korpsvart/Vague-GTK-Theme) | [Soon](https://www.pling.com/p/) |
+| Vague GTK | [Source](https://github.com/Fausto-Korpsvart/Vague-GTK-Theme) | [Soon](https://www.pling.com/p/) |
 
 ## Support the Project
 
